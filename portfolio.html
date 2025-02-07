@@ -3,53 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        function openVideo(videoUrl) {
-            document.getElementById("videoModal").style.display = "flex";
-            document.getElementById("videoFrame").src = videoUrl;
-        }
-        function closeVideo() {
-            document.getElementById("videoModal").style.display = "none";
-            document.getElementById("videoFrame").src = "";
-        }
-    </script>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="projects-container">
-        <button class="scroll-btn left" onclick="scrollLeft()">&#10094;</button>
-        <div class="projects">
-            <div class="project" onclick="openVideo('https://drive.google.com/file/d/1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK/preview')">
-                <img src="https://drive.google.com/thumbnail?id=1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK" alt="Project 1">
+    <header>
+        <h1>My Portfolio</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="portfolio">
+        <h2>My Projects</h2>
+        <div class="scroll-wrapper">
+            <button id="leftArrow">❮</button>
+            <div class="scroll-container">
+                <div class="projects">
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK/preview')">
+                        <iframe src="https://drive.google.com/file/d/1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK/preview" allow="autoplay"></iframe>
+                    </div>
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu/preview')">
+                        <iframe src="https://drive.google.com/file/d/1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu/preview" allow="autoplay"></iframe>
+                    </div>
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF/preview')">
+                        <iframe src="https://drive.google.com/file/d/1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF/preview" allow="autoplay"></iframe>
+                    </div>
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh/preview')">
+                        <iframe src="https://drive.google.com/file/d/1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh/preview" allow="autoplay"></iframe>
+                    </div>
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn/preview')">
+                        <iframe src="https://drive.google.com/file/d/1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn/preview" allow="autoplay"></iframe>
+                    </div>
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/16yrYMxS72qZRYgOkNcfNejc--BTqGuLL/preview')">
+                        <iframe src="https://drive.google.com/file/d/16yrYMxS72qZRYgOkNcfNejc--BTqGuLL/preview" allow="autoplay"></iframe>
+                    </div>
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76/preview')">
+                        <iframe src="https://drive.google.com/file/d/1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76/preview" allow="autoplay"></iframe>
+                    </div>
+                </div>
             </div>
-            <div class="project" onclick="openVideo('https://drive.google.com/file/d/1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu/preview')">
-                <img src="https://drive.google.com/thumbnail?id=1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu" alt="Project 2">
-            </div>
-            <div class="project" onclick="openVideo('https://drive.google.com/file/d/1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF/preview')">
-                <img src="https://drive.google.com/thumbnail?id=1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF" alt="Project 3">
-            </div>
-            <div class="project" onclick="openVideo('https://drive.google.com/file/d/1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh/preview')">
-                <img src="https://drive.google.com/thumbnail?id=1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh" alt="Project 4">
-            </div>
-            <div class="project" onclick="openVideo('https://drive.google.com/file/d/1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn/preview')">
-                <img src="https://drive.google.com/thumbnail?id=1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn" alt="Project 5">
-            </div>
+            <button id="rightArrow">❯</button>
         </div>
-        <button class="scroll-btn right" onclick="scrollRight()">&#10095;</button>
-    </div>
-    
-    <div id="videoModal" class="modal" onclick="closeVideo()">
-        <iframe id="videoFrame" allowfullscreen></iframe>
+    </section>
+
+    <!-- Video Overlay -->
+    <div id="videoOverlay">
+        <div class="overlay-content">
+            <button id="closeVideo">✖</button>
+            <iframe id="videoFrame" allow="autoplay"></iframe>
+        </div>
     </div>
 
+    <footer>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </footer>
+
     <script>
-        function scrollLeft() {
-            document.querySelector(".projects").scrollBy({ left: -300, behavior: 'smooth' });
+        const container = document.querySelector('.scroll-container');
+        const leftArrow = document.getElementById('leftArrow');
+        const rightArrow = document.getElementById('rightArrow');
+        const videoOverlay = document.getElementById('videoOverlay');
+        const videoFrame = document.getElementById('videoFrame');
+        const closeVideo = document.getElementById('closeVideo');
+
+        leftArrow.addEventListener('click', () => {
+            container.scrollBy({ left: -400, behavior: 'smooth' });
+        });
+
+        rightArrow.addEventListener('click', () => {
+            container.scrollBy({ left: 400, behavior: 'smooth' });
+        });
+
+        function openVideo(url) {
+            videoFrame.src = url;
+            videoOverlay.style.display = 'flex';
         }
-        function scrollRight() {
-            document.querySelector(".projects").scrollBy({ left: 300, behavior: 'smooth' });
-        }
+
+        closeVideo.addEventListener('click', () => {
+            videoOverlay.style.display = 'none';
+            videoFrame.src = ''; 
+        });
     </script>
 </body>
 </html>
