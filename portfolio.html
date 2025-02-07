@@ -18,16 +18,20 @@
 
     <section id="portfolio">
         <h2>My Projects</h2>
-        <div class="scroll-container">
-            <div class="projects">
-                <div class="project"><video src="video1.mp4" controls></video></div>
-                <div class="project"><video src="video2.mp4" controls></video></div>
-                <div class="project"><video src="video3.mp4" controls></video></div>
-                <div class="project"><video src="video4.mp4" controls></video></div>
-                <div class="project"><video src="video5.mp4" controls></video></div>
-                <div class="project"><video src="video6.mp4" controls></video></div>
-                <div class="project"><video src="video7.mp4" controls></video></div>
+        <div class="scroll-wrapper">
+            <button id="leftArrow">❮</button>
+            <div class="scroll-container">
+                <div class="projects">
+                    <div class="project"><video src="video1.mp4" controls></video></div>
+                    <div class="project"><video src="video2.mp4" controls></video></div>
+                    <div class="project"><video src="video3.mp4" controls></video></div>
+                    <div class="project"><video src="video4.mp4" controls></video></div>
+                    <div class="project"><video src="video5.mp4" controls></video></div>
+                    <div class="project"><video src="video6.mp4" controls></video></div>
+                    <div class="project"><video src="video7.mp4" controls></video></div>
+                </div>
             </div>
+            <button id="rightArrow">❯</button>
         </div>
     </section>
 
@@ -38,6 +42,8 @@
     <script>
         const container = document.querySelector('.scroll-container');
         const projects = document.querySelectorAll('.project');
+        const leftArrow = document.getElementById('leftArrow');
+        const rightArrow = document.getElementById('rightArrow');
 
         function updateFocus() {
             let center = window.innerWidth / 2;
@@ -45,8 +51,8 @@
             projects.forEach((project) => {
                 let rect = project.getBoundingClientRect();
                 let distance = Math.abs(center - (rect.left + rect.width / 2));
-                let scale = Math.max(1 - (distance / center), 0.8); // Center video is bigger
-                let opacity = Math.max(1 - (distance / center), 0.6); // Fade effect
+                let scale = Math.max(1 - (distance / center), 0.8);
+                let opacity = Math.max(1 - (distance / center), 0.6);
 
                 project.style.transform = `scale(${scale})`;
                 project.style.opacity = opacity;
@@ -56,6 +62,14 @@
         container.addEventListener('scroll', updateFocus);
         window.addEventListener('resize', updateFocus);
         updateFocus();
+
+        leftArrow.addEventListener('click', () => {
+            container.scrollBy({ left: -350, behavior: 'smooth' });
+        });
+
+        rightArrow.addEventListener('click', () => {
+            container.scrollBy({ left: 350, behavior: 'smooth' });
+        });
     </script>
 </body>
 </html>
