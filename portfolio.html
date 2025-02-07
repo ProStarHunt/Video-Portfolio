@@ -49,7 +49,7 @@
         </div>
     </section>
 
-    <!-- Video Overlay -->
+    <!-- Fullscreen Video Overlay -->
     <div id="videoOverlay">
         <div class="overlay-content">
             <button id="closeVideo">✖</button>
@@ -84,7 +84,7 @@
 
         closeVideo.addEventListener('click', () => {
             videoOverlay.style.display = 'none';
-            videoFrame.src = ''; 
+            videoFrame.src = ''; // Stop video when closing
         });
     </script>
 </body>
