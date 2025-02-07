@@ -28,12 +28,11 @@
             white-space: nowrap;
             width: 85%;
             padding: 10px 0;
-            margin-left: 20px; /* Ensuring first project is fully visible */
         }
         .projects {
             display: flex;
             gap: 20px;
-            padding-left: 10px; /* Adjusting for visibility */
+            padding-left: 30px; /* Adjusted to ensure the first project is fully visible */
         }
         .project {
             flex: 0 0 auto;
@@ -61,8 +60,8 @@
             padding: 10px;
             border-radius: 50%;
         }
-        #leftArrow { left: 0; }
-        #rightArrow { right: 0; }
+        #leftArrow { left: 10px; }
+        #rightArrow { right: 10px; }
     </style>
 </head>
 <body>
@@ -111,10 +110,10 @@
     <script>
         const container = document.querySelector('.scroll-container');
         document.getElementById('leftArrow').addEventListener('click', () => {
-            container.scrollBy({ left: -400, behavior: 'smooth' });
+            container.scrollBy({ left: -350, behavior: 'smooth' });
         });
         document.getElementById('rightArrow').addEventListener('click', () => {
-            container.scrollBy({ left: 400, behavior: 'smooth' });
+            container.scrollBy({ left: 350, behavior: 'smooth' });
         });
     </script>
 </body>
