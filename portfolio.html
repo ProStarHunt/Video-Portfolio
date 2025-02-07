@@ -21,16 +21,29 @@
         <div class="scroll-wrapper">
             <button id="leftArrow">❮</button>
             <div class="scroll-container">
-               <div class="projects">
-    <div class="project"><video src="https://drive.google.com/uc?export=download&id=1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK" controls></video></div>
-    <div class="project"><video src="https://drive.google.com/uc?export=download&id=1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu" controls></video></div>
-    <div class="project"><video src="https://drive.google.com/uc?export=download&id=1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF" controls></video></div>
-    <div class="project"><video src="https://drive.google.com/uc?export=download&id=1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh" controls></video></div>
-    <div class="project"><video src="https://drive.google.com/uc?export=download&id=1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn" controls></video></div>
-    <div class="project"><video src="https://drive.google.com/uc?export=download&id=16yrYMxS72qZRYgOkNcfNejc--BTqGuLL" controls></video></div>
-    <div class="project"><video src="https://drive.google.com/uc?export=download&id=1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76" controls></video></div>
-</div>
-
+                <div class="projects">
+                    <div class="project">
+                        <iframe src="https://drive.google.com/file/d/1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK/preview" allow="autoplay"></iframe>
+                    </div>
+                    <div class="project">
+                        <iframe src="https://drive.google.com/file/d/1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu/preview" allow="autoplay"></iframe>
+                    </div>
+                    <div class="project">
+                        <iframe src="https://drive.google.com/file/d/1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF/preview" allow="autoplay"></iframe>
+                    </div>
+                    <div class="project">
+                        <iframe src="https://drive.google.com/file/d/1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh/preview" allow="autoplay"></iframe>
+                    </div>
+                    <div class="project">
+                        <iframe src="https://drive.google.com/file/d/1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn/preview" allow="autoplay"></iframe>
+                    </div>
+                    <div class="project">
+                        <iframe src="https://drive.google.com/file/d/16yrYMxS72qZRYgOkNcfNejc--BTqGuLL/preview" allow="autoplay"></iframe>
+                    </div>
+                    <div class="project">
+                        <iframe src="https://drive.google.com/file/d/1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76/preview" allow="autoplay"></iframe>
+                    </div>
+                </div>
             </div>
             <button id="rightArrow">❯</button>
         </div>
@@ -42,27 +55,8 @@
 
     <script>
         const container = document.querySelector('.scroll-container');
-        const projects = document.querySelectorAll('.project');
         const leftArrow = document.getElementById('leftArrow');
         const rightArrow = document.getElementById('rightArrow');
-
-        function updateFocus() {
-            let center = window.innerWidth / 2;
-
-            projects.forEach((project) => {
-                let rect = project.getBoundingClientRect();
-                let distance = Math.abs(center - (rect.left + rect.width / 2));
-                let scale = Math.max(1 - (distance / center), 0.85);
-                let opacity = Math.max(1 - (distance / center), 0.7);
-
-                project.style.transform = `scale(${scale})`;
-                project.style.opacity = opacity;
-            });
-        }
-
-        container.addEventListener('scroll', updateFocus);
-        window.addEventListener('resize', updateFocus);
-        updateFocus();
 
         leftArrow.addEventListener('click', () => {
             container.scrollBy({ left: -400, behavior: 'smooth' });
