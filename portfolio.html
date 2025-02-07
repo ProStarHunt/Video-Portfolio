@@ -5,6 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .scroll-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            width: 90%;
+            margin: auto;
+        }
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            white-space: nowrap;
+            width: 85%;
+            padding: 10px 0;
+        }
+        .projects {
+            display: flex;
+            gap: 20px;
+            padding-left: 0; /* Adjusted to ensure the first project is fully visible */
+        }
+        .project {
+            flex: 0 0 auto;
+            width: 300px;
+            height: 180px;
+            position: relative;
+            cursor: pointer;
+        }
+        .project img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        #leftArrow, #rightArrow {
+            background: none;
+            border: none;
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+        }
+        #leftArrow { left: 10px; }
+        #rightArrow { right: 10px; }
+    </style>
 </head>
 <body>
     <header>
@@ -23,19 +81,25 @@
             <div class="scroll-container">
                 <div class="projects">
                     <div class="project" onclick="openVideo('https://drive.google.com/file/d/1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK/preview')">
-                        <img src="https://via.placeholder.com/350x200?text=Video+1" alt="Project 1">
+                        <img src="https://drive.google.com/thumbnail?id=1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK" alt="Project 1">
                     </div>
                     <div class="project" onclick="openVideo('https://drive.google.com/file/d/1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu/preview')">
-                        <img src="https://via.placeholder.com/350x200?text=Video+2" alt="Project 2">
+                        <img src="https://drive.google.com/thumbnail?id=1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu" alt="Project 2">
                     </div>
                     <div class="project" onclick="openVideo('https://drive.google.com/file/d/1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF/preview')">
-                        <img src="https://via.placeholder.com/350x200?text=Video+3" alt="Project 3">
+                        <img src="https://drive.google.com/thumbnail?id=1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF" alt="Project 3">
                     </div>
                     <div class="project" onclick="openVideo('https://drive.google.com/file/d/1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh/preview')">
-                        <img src="https://via.placeholder.com/350x200?text=Video+4" alt="Project 4">
+                        <img src="https://drive.google.com/thumbnail?id=1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh" alt="Project 4">
                     </div>
                     <div class="project" onclick="openVideo('https://drive.google.com/file/d/1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn/preview')">
-                        <img src="https://via.placeholder.com/350x200?text=Video+5" alt="Project 5">
+                        <img src="https://drive.google.com/thumbnail?id=1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn" alt="Project 5">
+                    </div>
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/16yrYMxS72qZRYgOkNcfNejc--BTqGuLL/preview')">
+                        <img src="https://drive.google.com/thumbnail?id=16yrYMxS72qZRYgOkNcfNejc--BTqGuLL" alt="Project 6">
+                    </div>
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76/preview')">
+                        <img src="https://drive.google.com/thumbnail?id=1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76" alt="Project 7">
                     </div>
                 </div>
             </div>
@@ -43,50 +107,13 @@
         </div>
     </section>
 
-    <!-- Video Overlay -->
-    <div id="videoOverlay">
-        <div class="overlay-content">
-            <button id="closeVideo">✖</button>
-            <iframe id="videoFrame" allow="autoplay"></iframe>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
-    </footer>
-
     <script>
         const container = document.querySelector('.scroll-container');
-        const leftArrow = document.getElementById('leftArrow');
-        const rightArrow = document.getElementById('rightArrow');
-        const videoOverlay = document.getElementById('videoOverlay');
-        const videoFrame = document.getElementById('videoFrame');
-        const closeVideo = document.getElementById('closeVideo');
-
-        leftArrow.addEventListener('click', () => {
-            container.scrollBy({ left: -400, behavior: 'smooth' });
+        document.getElementById('leftArrow').addEventListener('click', () => {
+            container.scrollBy({ left: -350, behavior: 'smooth' });
         });
-
-        rightArrow.addEventListener('click', () => {
-            container.scrollBy({ left: 400, behavior: 'smooth' });
-        });
-
-        function openVideo(url) {
-            videoFrame.src = url;
-            videoOverlay.style.display = 'flex';
-        }
-
-        closeVideo.addEventListener('click', () => {
-            videoOverlay.style.display = 'none';
-            videoFrame.src = ''; 
-        });
-
-        // Close overlay when clicking outside the video
-        videoOverlay.addEventListener('click', (e) => {
-            if (e.target === videoOverlay) {
-                videoOverlay.style.display = 'none';
-                videoFrame.src = '';
-            }
+        document.getElementById('rightArrow').addEventListener('click', () => {
+            container.scrollBy({ left: 350, behavior: 'smooth' });
         });
     </script>
 </body>
