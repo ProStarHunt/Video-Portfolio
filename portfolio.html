@@ -23,25 +23,19 @@
             <div class="scroll-container">
                 <div class="projects">
                     <div class="project" onclick="openVideo('https://drive.google.com/file/d/1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK/preview')">
-                        <iframe src="https://drive.google.com/file/d/1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK/preview" allow="autoplay"></iframe>
+                        <img src="https://via.placeholder.com/350x200?text=Video+1" alt="Project 1">
                     </div>
                     <div class="project" onclick="openVideo('https://drive.google.com/file/d/1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu/preview')">
-                        <iframe src="https://drive.google.com/file/d/1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu/preview" allow="autoplay"></iframe>
+                        <img src="https://via.placeholder.com/350x200?text=Video+2" alt="Project 2">
                     </div>
                     <div class="project" onclick="openVideo('https://drive.google.com/file/d/1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF/preview')">
-                        <iframe src="https://drive.google.com/file/d/1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF/preview" allow="autoplay"></iframe>
+                        <img src="https://via.placeholder.com/350x200?text=Video+3" alt="Project 3">
                     </div>
                     <div class="project" onclick="openVideo('https://drive.google.com/file/d/1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh/preview')">
-                        <iframe src="https://drive.google.com/file/d/1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh/preview" allow="autoplay"></iframe>
+                        <img src="https://via.placeholder.com/350x200?text=Video+4" alt="Project 4">
                     </div>
                     <div class="project" onclick="openVideo('https://drive.google.com/file/d/1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn/preview')">
-                        <iframe src="https://drive.google.com/file/d/1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn/preview" allow="autoplay"></iframe>
-                    </div>
-                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/16yrYMxS72qZRYgOkNcfNejc--BTqGuLL/preview')">
-                        <iframe src="https://drive.google.com/file/d/16yrYMxS72qZRYgOkNcfNejc--BTqGuLL/preview" allow="autoplay"></iframe>
-                    </div>
-                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76/preview')">
-                        <iframe src="https://drive.google.com/file/d/1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76/preview" allow="autoplay"></iframe>
+                        <img src="https://via.placeholder.com/350x200?text=Video+5" alt="Project 5">
                     </div>
                 </div>
             </div>
@@ -85,6 +79,14 @@
         closeVideo.addEventListener('click', () => {
             videoOverlay.style.display = 'none';
             videoFrame.src = ''; 
+        });
+
+        // Close overlay when clicking outside the video
+        videoOverlay.addEventListener('click', (e) => {
+            if (e.target === videoOverlay) {
+                videoOverlay.style.display = 'none';
+                videoFrame.src = '';
+            }
         });
     </script>
 </body>
