@@ -51,8 +51,8 @@
             projects.forEach((project) => {
                 let rect = project.getBoundingClientRect();
                 let distance = Math.abs(center - (rect.left + rect.width / 2));
-                let scale = Math.max(1 - (distance / center), 0.8);
-                let opacity = Math.max(1 - (distance / center), 0.6);
+                let scale = Math.max(1 - (distance / center), 0.85);
+                let opacity = Math.max(1 - (distance / center), 0.7);
 
                 project.style.transform = `scale(${scale})`;
                 project.style.opacity = opacity;
@@ -64,11 +64,11 @@
         updateFocus();
 
         leftArrow.addEventListener('click', () => {
-            container.scrollBy({ left: -350, behavior: 'smooth' });
+            container.scrollBy({ left: -400, behavior: 'smooth' });
         });
 
         rightArrow.addEventListener('click', () => {
-            container.scrollBy({ left: 350, behavior: 'smooth' });
+            container.scrollBy({ left: 400, behavior: 'smooth' });
         });
     </script>
 </body>
