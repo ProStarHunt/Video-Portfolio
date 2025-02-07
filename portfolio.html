@@ -20,13 +20,13 @@
         <h2>My Projects</h2>
         <div class="scroll-container">
             <div class="projects">
-                <div class="project"><img src="thumbnail1.jpg" alt="Project 1"></div>
-                <div class="project"><img src="thumbnail2.jpg" alt="Project 2"></div>
-                <div class="project"><img src="thumbnail3.jpg" alt="Project 3"></div>
-                <div class="project"><img src="thumbnail4.jpg" alt="Project 4"></div>
-                <div class="project"><img src="thumbnail5.jpg" alt="Project 5"></div>
-                <div class="project"><img src="thumbnail6.jpg" alt="Project 6"></div>
-                <div class="project"><img src="thumbnail7.jpg" alt="Project 7"></div>
+                <div class="project"><video src="video1.mp4" controls></video></div>
+                <div class="project"><video src="video2.mp4" controls></video></div>
+                <div class="project"><video src="video3.mp4" controls></video></div>
+                <div class="project"><video src="video4.mp4" controls></video></div>
+                <div class="project"><video src="video5.mp4" controls></video></div>
+                <div class="project"><video src="video6.mp4" controls></video></div>
+                <div class="project"><video src="video7.mp4" controls></video></div>
             </div>
         </div>
     </section>
@@ -45,10 +45,11 @@
             projects.forEach((project) => {
                 let rect = project.getBoundingClientRect();
                 let distance = Math.abs(center - (rect.left + rect.width / 2));
-                let scale = Math.max(1 - (distance / center), 0.8); // Bigger center effect
+                let scale = Math.max(1 - (distance / center), 0.8); // Center video is bigger
+                let opacity = Math.max(1 - (distance / center), 0.6); // Fade effect
 
                 project.style.transform = `scale(${scale})`;
-                project.style.opacity = scale; // Fade effect
+                project.style.opacity = opacity;
             });
         }
 
