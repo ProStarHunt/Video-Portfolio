@@ -4,108 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
+            background-color: #111;
+            color: white;
         }
-        .scroll-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
+        .portfolio-container {
             position: relative;
-            width: 90%;
-            margin: auto;
+            width: 100%;
+            overflow: hidden;
+            padding: 20px;
         }
         .scroll-container {
             display: flex;
             overflow-x: auto;
             scroll-behavior: smooth;
-            white-space: nowrap;
-            width: 85%;
-            padding: 10px 0;
-        }
-        .projects {
-            display: flex;
             gap: 20px;
-            padding-left: 10px; /* Adjusted to ensure the first project is fully visible */
+            padding-bottom: 20px;
+            scrollbar-width: none;
+        }
+        .scroll-container::-webkit-scrollbar {
+            display: none;
         }
         .project {
-            flex: 0 0 auto;
-            width: 300px;
-            height: 180px;
+            min-width: 300px;
+            height: 200px;
             position: relative;
             cursor: pointer;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
         }
         .project img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
         }
-        #leftArrow, #rightArrow {
-            background: none;
-            border: none;
-            font-size: 30px;
-            cursor: pointer;
+        .project:hover {
+            transform: scale(1.1);
+        }
+        .arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            font-size: 24px;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        #leftArrow {
+            left: 10px;
+        }
+        #rightArrow {
+            right: 10px;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .overlay iframe {
+            width: 80%;
+            height: 80%;
+            border: none;
+        }
+        .overlay .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: black;
+            font-size: 24px;
+            border: none;
+            cursor: pointer;
             padding: 10px;
             border-radius: 50%;
         }
-        #leftArrow { left: 10px; }
-        #rightArrow { right: 10px; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>My Portfolio</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="index.html#contact">Contact</a>
-        </nav>
-    </header>
 
-    <section id="portfolio">
-        <h2>My Projects</h2>
-        <div class="scroll-wrapper">
-            <button id="leftArrow">❮</button>
-            <div class="scroll-container">
-                <div class="projects">
-                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK/preview')">
-                        <img src="https://drive.google.com/thumbnail?id=1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK" alt="Project 1">
-                    </div>
-                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu/preview')">
-                        <img src="https://drive.google.com/thumbnail?id=1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu" alt="Project 2">
-                    </div>
-                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF/preview')">
-                        <img src="https://drive.google.com/thumbnail?id=1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF" alt="Project 3">
-                    </div>
-                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh/preview')">
-                        <img src="https://drive.google.com/thumbnail?id=1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh" alt="Project 4">
-                    </div>
-                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn/preview')">
-                        <img src="https://drive.google.com/thumbnail?id=1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn" alt="Project 5">
-                    </div>
-                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/16yrYMxS72qZRYgOkNcfNejc--BTqGuLL/preview')">
-                        <img src="https://drive.google.com/thumbnail?id=16yrYMxS72qZRYgOkNcfNejc--BTqGuLL" alt="Project 6">
-                    </div>
-                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76/preview')">
-                        <img src="https://drive.google.com/thumbnail?id=1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76" alt="Project 7">
-                    </div>
-                </div>
+    <div class="portfolio-container">
+        <button id="leftArrow" class="arrow">&#8592;</button>
+        <div class="scroll-container">
+            <div class="project" onclick="openVideo('https://drive.google.com/file/d/1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK/preview')">
+                <img src="https://drive.google.com/thumbnail?id=1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK" alt="Project 1">
             </div>
-            <button id="rightArrow">❯</button>
+            <div class="project" onclick="openVideo('https://drive.google.com/file/d/1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu/preview')">
+                <img src="https://drive.google.com/thumbnail?id=1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu" alt="Project 2">
+            </div>
+            <div class="project" onclick="openVideo('https://drive.google.com/file/d/1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF/preview')">
+                <img src="https://drive.google.com/thumbnail?id=1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF" alt="Project 3">
+            </div>
+            <div class="project" onclick="openVideo('https://drive.google.com/file/d/1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh/preview')">
+                <img src="https://drive.google.com/thumbnail?id=1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh" alt="Project 4">
+            </div>
+            <div class="project" onclick="openVideo('https://drive.google.com/file/d/1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn/preview')">
+                <img src="https://drive.google.com/thumbnail?id=1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn" alt="Project 5">
+            </div>
+            <div class="project" onclick="openVideo('https://drive.google.com/file/d/16yrYMxS72qZRYgOkNcfNejc--BTqGuLL/preview')">
+                <img src="https://drive.google.com/thumbnail?id=16yrYMxS72qZRYgOkNcfNejc--BTqGuLL" alt="Project 6">
+            </div>
+            <div class="project" onclick="openVideo('https://drive.google.com/file/d/1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76/preview')">
+                <img src="https://drive.google.com/thumbnail?id=1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76" alt="Project 7">
+            </div>
         </div>
-    </section>
+        <button id="rightArrow" class="arrow">&#8594;</button>
+    </div>
 
     <script>
         const container = document.querySelector('.scroll-container');
@@ -115,6 +133,24 @@
         document.getElementById('rightArrow').addEventListener('click', () => {
             container.scrollBy({ left: 350, behavior: 'smooth' });
         });
+
+        function openVideo(url) {
+            const overlay = document.createElement('div');
+            overlay.classList.add('overlay');
+
+            const iframe = document.createElement('iframe');
+            iframe.src = url;
+            overlay.appendChild(iframe);
+
+            const closeButton = document.createElement('button');
+            closeButton.innerHTML = '✖';
+            closeButton.classList.add('close-btn');
+            closeButton.onclick = () => document.body.removeChild(overlay);
+
+            overlay.appendChild(closeButton);
+            document.body.appendChild(overlay);
+        }
     </script>
+
 </body>
 </html>
