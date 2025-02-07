@@ -32,12 +32,12 @@
         .projects {
             display: flex;
             gap: 20px;
-            padding-left: 10px; /* Adjusted to ensure the first project is fully visible */
+            padding-left: 10px;
         }
         .project {
             flex: 0 0 auto;
-            width: 400px; /* Increased size */
-            height: 250px; /* Increased size */
+            width: 300px;
+            height: 180px;
             position: relative;
             cursor: pointer;
         }
@@ -79,28 +79,8 @@
         <div class="scroll-wrapper">
             <button id="leftArrow">❮</button>
             <div class="scroll-container">
-                <div class="projects">
-                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK/preview')">
-                        <img src="https://drive.google.com/thumbnail?id=1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK" alt="Project 1">
-                    </div>
-                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu/preview')">
-                        <img src="https://drive.google.com/thumbnail?id=1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu" alt="Project 2">
-                    </div>
-                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF/preview')">
-                        <img src="https://drive.google.com/thumbnail?id=1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF" alt="Project 3">
-                    </div>
-                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh/preview')">
-                        <img src="https://drive.google.com/thumbnail?id=1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh" alt="Project 4">
-                    </div>
-                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn/preview')">
-                        <img src="https://drive.google.com/thumbnail?id=1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn" alt="Project 5">
-                    </div>
-                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/16yrYMxS72qZRYgOkNcfNejc--BTqGuLL/preview')">
-                        <img src="https://drive.google.com/thumbnail?id=16yrYMxS72qZRYgOkNcfNejc--BTqGuLL" alt="Project 6">
-                    </div>
-                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76/preview')">
-                        <img src="https://drive.google.com/thumbnail?id=1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76" alt="Project 7">
-                    </div>
+                <div class="projects" id="projectsContainer">
+                    
                 </div>
             </div>
             <button id="rightArrow">❯</button>
@@ -108,12 +88,45 @@
     </section>
 
     <script>
+        const projectsData = [
+            { id: "1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK" },
+            { id: "1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu" },
+            { id: "1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF" },
+            { id: "1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh" },
+            { id: "1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn" },
+            { id: "16yrYMxS72qZRYgOkNcfNejc--BTqGuLL" },
+            { id: "1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76" }
+        ];
+
+        const projectsContainer = document.getElementById("projectsContainer");
+        
+        function populateProjects() {
+            projectsContainer.innerHTML = "";
+            projectsData.forEach(project => {
+                const projectDiv = document.createElement("div");
+                projectDiv.classList.add("project");
+                projectDiv.onclick = () => openVideo(`https://drive.google.com/file/d/${project.id}/preview`);
+                projectDiv.innerHTML = `<img src="https://drive.google.com/thumbnail?id=${project.id}" alt="Project">`;
+                projectsContainer.appendChild(projectDiv);
+            });
+        }
+
+        populateProjects();
+
         const container = document.querySelector('.scroll-container');
         document.getElementById('leftArrow').addEventListener('click', () => {
-            container.scrollBy({ left: -350, behavior: 'smooth' });
+            if (container.scrollLeft <= 0) {
+                container.scrollLeft = container.scrollWidth;
+            } else {
+                container.scrollBy({ left: -350, behavior: 'smooth' });
+            }
         });
         document.getElementById('rightArrow').addEventListener('click', () => {
-            container.scrollBy({ left: 350, behavior: 'smooth' });
+            if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+                container.scrollLeft = 0;
+            } else {
+                container.scrollBy({ left: 350, behavior: 'smooth' });
+            }
         });
     </script>
 </body>
