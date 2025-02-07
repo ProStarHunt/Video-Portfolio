@@ -22,20 +22,25 @@ section {
     padding: 50px 20px;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
     gap: 20px;
-    max-width: 1000px;
-    margin: auto;
+    padding: 20px;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
 }
 
 .project {
+    flex: 0 0 auto;
+    width: 300px;
+    cursor: pointer;
+    text-align: center;
     background-color: #222;
     padding: 10px;
     border-radius: 10px;
-    cursor: pointer;
     transition: 0.3s;
+    scroll-snap-align: start;
 }
 
 .project:hover {
