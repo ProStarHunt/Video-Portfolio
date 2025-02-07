@@ -23,19 +23,25 @@
             <div class="scroll-container">
                 <div class="projects">
                     <div class="project" onclick="openVideo('https://drive.google.com/file/d/1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK/preview')">
-                        <img src="https://via.placeholder.com/350x200?text=Video+1" alt="Project 1">
+                        <img src="thumbnails/video1.jpg" alt="Project 1">
                     </div>
                     <div class="project" onclick="openVideo('https://drive.google.com/file/d/1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu/preview')">
-                        <img src="https://via.placeholder.com/350x200?text=Video+2" alt="Project 2">
+                        <img src="thumbnails/video2.jpg" alt="Project 2">
                     </div>
                     <div class="project" onclick="openVideo('https://drive.google.com/file/d/1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF/preview')">
-                        <img src="https://via.placeholder.com/350x200?text=Video+3" alt="Project 3">
+                        <img src="thumbnails/video3.jpg" alt="Project 3">
                     </div>
                     <div class="project" onclick="openVideo('https://drive.google.com/file/d/1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh/preview')">
-                        <img src="https://via.placeholder.com/350x200?text=Video+4" alt="Project 4">
+                        <img src="thumbnails/video4.jpg" alt="Project 4">
                     </div>
                     <div class="project" onclick="openVideo('https://drive.google.com/file/d/1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn/preview')">
-                        <img src="https://via.placeholder.com/350x200?text=Video+5" alt="Project 5">
+                        <img src="thumbnails/video5.jpg" alt="Project 5">
+                    </div>
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/16yrYMxS72qZRYgOkNcfNejc--BTqGuLL/preview')">
+                        <img src="thumbnails/video6.jpg" alt="Project 6">
+                    </div>
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76/preview')">
+                        <img src="thumbnails/video7.jpg" alt="Project 7">
                     </div>
                 </div>
             </div>
@@ -43,7 +49,6 @@
         </div>
     </section>
 
-    <!-- Video Overlay -->
     <div id="videoOverlay">
         <div class="overlay-content">
             <button id="closeVideo">✖</button>
@@ -81,7 +86,6 @@
             videoFrame.src = ''; 
         });
 
-        // Close overlay when clicking outside the video
         videoOverlay.addEventListener('click', (e) => {
             if (e.target === videoOverlay) {
                 videoOverlay.style.display = 'none';
