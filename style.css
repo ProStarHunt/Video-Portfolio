@@ -1,37 +1,112 @@
-body {
-    font-family: Arial, sans-serif;
+/* General Styles */
+* {
     margin: 0;
     padding: 0;
-    text-align: center;
-    background-color: #111;
-    color: white;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth;
 }
 
+body {
+    background-color: #0d0d0d;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Header & Navbar */
 header {
-    background-color: #222;
-    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #111;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 nav a {
-    color: white;
-    margin: 0 15px;
+    color: #ffffff;
+    margin: 0 20px;
     text-decoration: none;
+    font-size: 18px;
+    position: relative;
 }
 
+nav a::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0;
+    background: white;
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Sections */
 section {
-    padding: 50px 20px;
+    padding: 100px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Video Styling */
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+iframe {
+    width: 900px;
+    height: 500px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Projects Section */
+#projects {
+    margin-top: 50px;
 }
 
 .project {
-    background-color: #333;
-    padding: 15px;
-    margin: 10px;
-    border-radius: 5px;
+    background: #1a1a1a;
+    padding: 20px;
+    margin: 15px auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
+.project:hover {
+    transform: translateY(-5px);
+}
+
+/* Footer */
 footer {
-    background-color: #222;
-    padding: 10px;
+    background-color: #111;
+    padding: 20px;
+    font-size: 14px;
     position: relative;
     bottom: 0;
     width: 100%;
