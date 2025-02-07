@@ -36,6 +36,7 @@
     </footer>
 
     <script>
+        const container = document.querySelector('.scroll-container');
         const projects = document.querySelectorAll('.project');
 
         function updateFocus() {
@@ -44,16 +45,14 @@
             projects.forEach((project) => {
                 let rect = project.getBoundingClientRect();
                 let distance = Math.abs(center - (rect.left + rect.width / 2));
-                let scale = Math.max(1 - (distance / center), 0.7); // Pop effect
-                let opacity = Math.max(1 - (distance / center), 0.5); // Fades behind
+                let scale = Math.max(1 - (distance / center), 0.8); // Bigger center effect
 
                 project.style.transform = `scale(${scale})`;
-                project.style.opacity = opacity;
-                project.style.zIndex = Math.round(scale * 10);
+                project.style.opacity = scale; // Fade effect
             });
         }
 
-        document.querySelector('.scroll-container').addEventListener('scroll', updateFocus);
+        container.addEventListener('scroll', updateFocus);
         window.addEventListener('resize', updateFocus);
         updateFocus();
     </script>
