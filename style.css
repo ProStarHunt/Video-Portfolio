@@ -62,14 +62,14 @@ section {
     position: relative;
 }
 
+.project:hover {
+    transform: scale(1.05);
+}
+
 .project img {
     width: 100%;
     height: 200px;
     border-radius: 10px;
-}
-
-.project:hover {
-    transform: scale(1.05);
 }
 
 #videoOverlay {
@@ -88,6 +88,9 @@ section {
     position: relative;
     width: 80%;
     max-width: 800px;
+    background: black;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 #videoFrame {
