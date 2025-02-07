@@ -49,10 +49,10 @@
         </div>
     </section>
 
-    <!-- Fullscreen Video Overlay -->
-    <div id="videoOverlay">
-        <div class="overlay-content">
-            <button id="closeVideo">✖</button>
+    <!-- Video Overlay -->
+    <div id="videoOverlay" onclick="closeVideo()">
+        <div class="overlay-content" onclick="event.stopPropagation();">
+            <button id="closeVideo" onclick="closeVideo()">✖</button>
             <iframe id="videoFrame" allow="autoplay"></iframe>
         </div>
     </div>
@@ -67,7 +67,6 @@
         const rightArrow = document.getElementById('rightArrow');
         const videoOverlay = document.getElementById('videoOverlay');
         const videoFrame = document.getElementById('videoFrame');
-        const closeVideo = document.getElementById('closeVideo');
 
         leftArrow.addEventListener('click', () => {
             container.scrollBy({ left: -400, behavior: 'smooth' });
@@ -82,10 +81,10 @@
             videoOverlay.style.display = 'flex';
         }
 
-        closeVideo.addEventListener('click', () => {
+        function closeVideo() {
             videoOverlay.style.display = 'none';
-            videoFrame.src = ''; // Stop video when closing
-        });
+            videoFrame.src = '';
+        }
     </script>
 </body>
 </html>
