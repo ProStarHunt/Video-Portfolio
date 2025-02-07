@@ -23,10 +23,12 @@ section {
 }
 
 .scroll-container {
-    overflow-x: scroll;
+    overflow-x: auto;
     white-space: nowrap;
-    padding: 40px 0;
     scrollbar-width: none;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
 }
 
 .projects {
@@ -34,6 +36,7 @@ section {
     gap: 40px;
     padding: 20px;
     scroll-snap-type: x mandatory;
+    justify-content: center;
 }
 
 .project {
@@ -43,7 +46,7 @@ section {
     background-color: #222;
     padding: 10px;
     border-radius: 15px;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out, z-index 0.3s;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
     scroll-snap-align: center;
     position: relative;
 }
