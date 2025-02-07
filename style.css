@@ -27,6 +27,8 @@ section {
     align-items: center;
     justify-content: center;
     position: relative;
+    max-width: 90%;
+    margin: auto;
 }
 
 .scroll-container {
@@ -36,12 +38,12 @@ section {
     display: flex;
     justify-content: center;
     padding: 40px 0;
-    width: 80%;
+    width: 100%;
 }
 
 .projects {
     display: flex;
-    gap: 40px;
+    gap: 30px;
     padding: 20px;
     scroll-snap-type: x mandatory;
     justify-content: center;
@@ -64,6 +66,7 @@ section {
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
+    pointer-events: auto; /* Fixes clicking issue */
 }
 
 footer {
@@ -84,8 +87,8 @@ footer {
     transform: translateY(-50%);
 }
 
-#leftArrow { left: 10px; }
-#rightArrow { right: 10px; }
+#leftArrow { left: -50px; }
+#rightArrow { right: -50px; }
 
 #leftArrow:hover, #rightArrow:hover {
     background: rgba(255, 255, 255, 0.5);
