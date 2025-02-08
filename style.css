@@ -1,128 +1,109 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: #111;
-    color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
 }
 
-header {
-    background-color: #222;
-    padding: 20px;
+.container {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
-nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
+/* Hero Section */
+.hero {
+  background: #007BFF;
+  color: #fff;
+  padding: 100px 0;
+  text-align: center;
 }
 
-section {
-    padding: 50px 20px;
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
 }
 
-.scroll-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    max-width: 90%;
-    margin: auto;
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
 }
 
-.scroll-container {
-    overflow-x: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-    display: flex;
-    justify-content: center;
-    padding: 40px 0;
-    width: 80%;
-    scroll-behavior: smooth;
+.hero .btn {
+  background: #fff;
+  color: #007BFF;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
+/* About Section */
+.about {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* Projects Section */
 .projects {
-    display: flex;
-    gap: 30px;
-    padding: 20px;
-    scroll-snap-type: x mandatory;
-    justify-content: center;
+  padding: 50px 0;
+  background: #f4f4f4;
 }
 
-.project {
-    flex: 0 0 350px;
-    cursor: pointer;
-    text-align: center;
-    background-color: #222;
-    padding: 10px;
-    border-radius: 15px;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-    scroll-snap-align: center;
-    position: relative;
+.projects h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
-.project:hover {
-    transform: scale(1.05);
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
-.project img {
-    width: 100%;
-    height: 200px;
-    border-radius: 10px;
+.project-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#videoOverlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
-.overlay-content {
-    position: relative;
-    width: 80%;
-    max-width: 800px;
-    background: black;
-    padding: 10px;
-    border-radius: 10px;
+.project-card a {
+  color: #007BFF;
+  text-decoration: none;
 }
 
-#videoFrame {
-    width: 100%;
-    height: 450px;
-    border: none;
-    border-radius: 10px;
+/* Contact Section */
+.contact {
+  padding: 50px 0;
+  text-align: center;
 }
 
-#closeVideo {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background: white;
-    color: black;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 50%;
+.contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
-#leftArrow, #rightArrow {
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-    background: none;
-    border: none;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+.contact .btn {
+  margin: 10px;
 }
 
-#leftArrow { left: 10px; }
-#rightArrow { right: 10px; }
+/* Footer */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
