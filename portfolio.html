@@ -32,7 +32,7 @@
         .projects {
             display: flex;
             gap: 20px;
-            padding-left: 0; /* Adjusted to ensure the first project is fully visible */
+            padding-left: 0;
         }
         .project {
             flex: 0 0 auto;
@@ -59,9 +59,11 @@
             color: white;
             padding: 10px;
             border-radius: 50%;
+            display: none; /* Hide arrows by default */
         }
         #leftArrow { left: 10px; }
         #rightArrow { right: 10px; }
+
         /* Video Modal */
         .video-modal {
             display: none;
@@ -76,8 +78,8 @@
             z-index: 1000;
         }
         .video-modal iframe {
-            width: 80%;
-            height: 80%;
+            width: 90%;
+            height: 50%;
             border: none;
             border-radius: 10px;
         }
@@ -88,6 +90,37 @@
             font-size: 30px;
             color: white;
             cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .scroll-container {
+                width: 100%; /* Take full width on smaller screens */
+            }
+            .project {
+                width: 250px; /* Smaller project cards on mobile */
+                height: 150px;
+            }
+            .projects {
+                gap: 10px; /* Reduce gap between projects */
+            }
+            #leftArrow, #rightArrow {
+                display: block; /* Show arrows on larger screens */
+            }
+            .video-modal iframe {
+                width: 95%;
+                height: 40%; /* Adjust video modal size for mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project {
+                width: 200px; /* Even smaller project cards for very small screens */
+                height: 120px;
+            }
+            .video-modal iframe {
+                height: 30%; /* Further adjust video modal size */
+            }
         }
     </style>
 </head>
