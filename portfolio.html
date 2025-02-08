@@ -59,7 +59,7 @@
             color: white;
             padding: 10px;
             border-radius: 50%;
-            display: none; /* Hide arrows by default */
+            display: block; /* Show arrows by default (desktop) */
         }
         #leftArrow { left: 10px; }
         #rightArrow { right: 10px; }
@@ -78,8 +78,8 @@
             z-index: 1000;
         }
         .video-modal iframe {
-            width: 90%;
-            height: 50%;
+            width: 80%;
+            height: 80%;
             border: none;
             border-radius: 10px;
         }
@@ -105,7 +105,7 @@
                 gap: 10px; /* Reduce gap between projects */
             }
             #leftArrow, #rightArrow {
-                display: block; /* Show arrows on larger screens */
+                display: none; /* Hide arrows on mobile */
             }
             .video-modal iframe {
                 width: 95%;
