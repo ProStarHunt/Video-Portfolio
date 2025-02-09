@@ -36,9 +36,9 @@ section {
     white-space: nowrap;
     scrollbar-width: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Changed from center to flex-start */
     padding: 40px 0;
-    width: 80%;
+    width: 100%; /* Changed from 80% to 100% */
     scroll-behavior: smooth;
 }
 
@@ -47,7 +47,8 @@ section {
     gap: 30px;
     padding: 20px;
     scroll-snap-type: x mandatory;
-    justify-content: center;
+    justify-content: flex-start; /* Changed from center to flex-start */
+    flex: 0 0 auto; /* Added to prevent shrinking */
 }
 
 .project {
