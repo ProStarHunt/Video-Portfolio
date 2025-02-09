@@ -1,129 +1,203 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: #111;
-    color: white;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .scroll-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            width: 90%;
+            margin: auto;
+        }
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            white-space: nowrap;
+            width: 100%; /* Changed from 85% to 100% */
+            padding: 10px 0;
+        }
+        .projects {
+            display: flex;
+            gap: 20px;
+            padding-left: 0;
+            flex: 0 0 auto; /* Ensure projects don't shrink */
+        }
+        .project {
+            flex: 0 0 auto;
+            width: 300px;
+            height: 180px;
+            position: relative;
+            cursor: pointer;
+        }
+        .project img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        #leftArrow, #rightArrow {
+            background: none;
+            border: none;
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            display: block; /* Show arrows by default */
+            z-index: 10; /* Added to ensure arrows are above other elements */
+        }
+        #leftArrow { left: 10px; }
+        #rightArrow { right: 10px; }
 
-header {
-    background-color: #222;
-    padding: 20px;
-}
+        /* Video Modal */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .video-modal iframe {
+            width: 80%;
+            height: 80%;
+            border: none;
+            border-radius: 10px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
 
-nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-}
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .scroll-container {
+                width: 100%; /* Take full width on smaller screens */
+            }
+            .project {
+                width: 250px; /* Smaller project cards on mobile */
+                height: 150px;
+            }
+            .projects {
+                gap: 10px; /* Reduce gap between projects */
+            }
+            #leftArrow, #rightArrow {
+                display: none; /* Hide arrows on mobile */
+            }
+            .video-modal iframe {
+                width: 95%;
+                height: 40%; /* Adjust video modal size for mobile */
+            }
+        }
 
-section {
-    padding: 50px 20px;
-}
+        @media (max-width: 480px) {
+            .project {
+                width: 200px; /* Even smaller project cards for very small screens */
+                height: 120px;
+            }
+            .video-modal iframe {
+                height: 30%; /* Further adjust video modal size */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
 
-.scroll-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    max-width: 90%;
-    margin: auto;
-}
+    <section id="portfolio">
+        <h2>My Projects</h2>
+        <div class="scroll-wrapper">
+            <button id="leftArrow">❮</button>
+            <div class="scroll-container">
+                <div class="projects">
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK/preview')">
+                        <img src="https://drive.google.com/thumbnail?id=1onqTWPEZv7a2-9q5M7NMoGJY-jYOZrHK" alt="Project 1">
+                    </div>
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu/preview')">
+                        <img src="https://drive.google.com/thumbnail?id=1etBswD7m6IRN_GlSFo5nXQUnqUJu9AMu" alt="Project 2">
+                    </div>
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF/preview')">
+                        <img src="https://drive.google.com/thumbnail?id=1YoJX2DH1peNxHJSGTuG1tffJyI1PJ_nF" alt="Project 3">
+                    </div>
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh/preview')">
+                        <img src="https://drive.google.com/thumbnail?id=1Xl4xsaIwzfRcwUhd--0jPCa7G2DOV4Lh" alt="Project 4">
+                    </div>
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn/preview')">
+                        <img src="https://drive.google.com/thumbnail?id=1W9b2Po67vJ5wUX3okwxj9PcwYsRDZlfn" alt="Project 5">
+                    </div>
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/16yrYMxS72qZRYgOkNcfNejc--BTqGuLL/preview')">
+                        <img src="https://drive.google.com/thumbnail?id=16yrYMxS72qZRYgOkNcfNejc--BTqGuLL" alt="Project 6">
+                    </div>
+                    <div class="project" onclick="openVideo('https://drive.google.com/file/d/1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76/preview')">
+                        <img src="https://drive.google.com/thumbnail?id=1EkzfFw4nG34P9clZ9BwWF0RZF88TYz76" alt="Project 7">
+                    </div>
+                </div>
+            </div>
+            <button id="rightArrow">❯</button>
+        </div>
+    </section>
 
-.scroll-container {
-    overflow-x: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-    display: flex;
-    justify-content: flex-start; /* Changed from center to flex-start */
-    padding: 40px 0;
-    width: 100%; /* Changed from 80% to 100% */
-    scroll-behavior: smooth;
-}
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <span class="close-btn" onclick="closeVideo()">&times;</span>
+        <iframe id="videoFrame" src="" allow="autoplay"></iframe>
+    </div>
 
-.projects {
-    display: flex;
-    gap: 30px;
-    padding: 20px;
-    scroll-snap-type: x mandatory;
-    justify-content: flex-start; /* Changed from center to flex-start */
-    flex: 0 0 auto; /* Added to prevent shrinking */
-}
+    <script>
+        const container = document.querySelector('.scroll-container');
+        document.getElementById('leftArrow').addEventListener('click', () => {
+            container.scrollBy({ left: -350, behavior: 'smooth' });
+        });
+        document.getElementById('rightArrow').addEventListener('click', () => {
+            container.scrollBy({ left: 350, behavior: 'smooth' });
+        });
 
-.project {
-    flex: 0 0 350px;
-    cursor: pointer;
-    text-align: center;
-    background-color: #222;
-    padding: 10px;
-    border-radius: 15px;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-    scroll-snap-align: center;
-    position: relative;
-}
+        // Video Modal Functions
+        function openVideo(videoUrl) {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoFrame');
+            iframe.src = videoUrl;
+            modal.style.display = 'flex';
+        }
 
-.project:hover {
-    transform: scale(1.05);
-}
-
-.project img {
-    width: 100%;
-    height: 200px;
-    border-radius: 10px;
-}
-
-#videoOverlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-}
-
-.overlay-content {
-    position: relative;
-    width: 80%;
-    max-width: 800px;
-    background: black;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-#videoFrame {
-    width: 100%;
-    height: 450px;
-    border: none;
-    border-radius: 10px;
-}
-
-#closeVideo {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background: white;
-    color: black;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 50%;
-}
-
-#leftArrow, #rightArrow {
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-    background: none;
-    border: none;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-#leftArrow { left: 10px; }
-#rightArrow { right: 10px; }
+        function closeVideo() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoFrame');
+            iframe.src = ''; // Stop the video
+            modal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
