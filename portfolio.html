@@ -26,13 +26,14 @@
             overflow-x: auto;
             scroll-behavior: smooth;
             white-space: nowrap;
-            width: 85%;
+            width: 100%; /* Changed from 85% to 100% */
             padding: 10px 0;
         }
         .projects {
             display: flex;
             gap: 20px;
             padding-left: 0;
+            flex: 0 0 auto; /* Ensure projects don't shrink */
         }
         .project {
             flex: 0 0 auto;
@@ -59,7 +60,7 @@
             color: white;
             padding: 10px;
             border-radius: 50%;
-            display: block; /* Show arrows by default (desktop) */
+            display: block; /* Show arrows by default */
         }
         #leftArrow { left: 10px; }
         #rightArrow { right: 10px; }
